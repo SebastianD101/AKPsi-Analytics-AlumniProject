@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Alumni List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Graduation Date</th>
+        <th>Majors</th>
+        <th>Sphere</th>
+        <th>Position</th>
+        <th>Current Company</th>
+        <th>Location</th>
+        <th>Previous Companies & Positions</th>
+        <th>Email</th>
+        <th>LinkedIn</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for alumni in alumni %}
+        <tr>
+          <td>{{ alumni.name }}</td>
+          <td>{{ alumni.graduation_date }}</td>
+          <td>{{ alumni.majors }}</td>
+          <td>{{ alumni.sphere }}</td>
+          <td>{{ alumni.position }}</td>
+          <td>{{ alumni.current_company }}</td>
+          <td>{{ alumni.location }}</td>
+          <td>{{ alumni.previous_companies }}</td>
+          <td>{{ alumni.email }}</td>
+          <td>{{ alumni.linkedin }}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="10">No alumni found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Alumni List - {{ sphere }}</h1>
+<ul>
+{% for a in alumni %}
+    <li>{{ a.name }} - {{ a.email }}</li>
+{% empty %}
+    <li>No alumni found</li>
+{% endfor %}
+</ul>
+{% endblock %}
