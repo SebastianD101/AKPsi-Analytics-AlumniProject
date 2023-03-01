@@ -28,8 +28,8 @@
           <td>{{ alumni.current_company }}</td>
           <td>{{ alumni.location }}</td>
           <td>{{ alumni.previous_companies }}</td>
-          <td>{{ alumni.email }}</td>
-          <td>{{ alumni.linkedin }}</td>
+          <td><a href="mailto:"{{ alumni.email }}>{{ alumni.email }}</a></td>
+          <td><a href={{ alumni.linkedin }} target="_blank">{{ alumni.linkedin }}</a></td>
         </tr>
       {% empty %}
         <tr>

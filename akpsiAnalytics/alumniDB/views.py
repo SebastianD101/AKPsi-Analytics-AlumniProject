@@ -8,10 +8,13 @@ class AlumniListView(View):
         alumni = Alumni.objects.all()
         return render(request, 'alumni_list.html', {'alumni': alumni})
 
-class AlumniFilterView(View):
-    def get(self, request, sphere):
+def AlumniFilterView(request):
+    if request.method == 'POST':
+        sphere = request.POST.get('sphere')
         alumni = Alumni.objects.filter(sphere=sphere)
-        return render(request, 'alumni_filter.html', {'alumni': alumni})
+        return render(request, 'alumni_list.html', {'alumni': alumni})
+    else:
+        return render(request, 'alumni_filter.html')
 
 class AlumniAddView(View):
     def get(self, request):
